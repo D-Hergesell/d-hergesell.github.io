@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Paleta inspirada na energia visual de Persona 5 Royal:
+  vermelho vivo, preto profundo e branco-gelo — com identidade própria.
+*/
+:root {
+  --color-bg: #f6f3ec;
+  --color-fg: #0d0d0d;
+  --color-accent: #d40021;
+  --color-card: #ffffff;
+  --color-muted: #494439;
+  --color-edge: #0d0d0d;
+  /* Triplets RGB — permitem modificadores de opacidade do Tailwind (ex.: bg-base/90) */
+  --color-bg-rgb: 246 243 236;
+  --color-fg-rgb: 13 13 13;
+  --color-accent-rgb: 212 0 33;
+  --color-card-rgb: 255 255 255;
+  --color-muted-rgb: 73 68 57;
+  --color-edge-rgb: 13 13 13;
+}
+
+.dark {
+  --color-bg: #0a0a0a;
+  --color-fg: #f4f1ea;
+  --color-accent: #e60023;
+  --color-card: #141414;
+  --color-muted: #a39e94;
+  --color-edge: #f4f1ea;
+  --color-bg-rgb: 10 10 10;
+  --color-fg-rgb: 244 241 234;
+  --color-accent-rgb: 230 0 35;
+  --color-card-rgb: 20 20 20;
+  --color-muted-rgb: 163 158 148;
+  --color-edge-rgb: 244 241 234;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Foco visível e consistente — acessibilidade */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ---- Utilitários no estilo P5R ---- */
+
+/* Corte diagonal agressivo para cards e blocos */
+.clip-slant {
+  clip-path: polygon(0 0, 100% 4%, 98% 100%, 2% 96%);
+}
+
+.clip-slant-alt {
+  clip-path: polygon(2% 3%, 100% 0, 97% 97%, 0 100%);
+}
+
+/* Botão/etiqueta em paralelogramo */
+.clip-tag {
+  clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+}
+
+/* Moldura irregular do avatar, estilo colagem */
+.clip-shard {
+  clip-path: polygon(24% 2%, 96% 8%, 100% 62%, 78% 98%, 14% 94%, 0 30%);
+}
+
+/* Padrão de meio-tom (halftone) usado em fundos */
+.halftone {
+  background-image: radial-gradient(currentColor 1.2px, transparent 1.2px);
+  background-size: 14px 14px;
+}
+
+/* Listras diagonais para faixas decorativas */
+.stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-accent),
+    var(--color-accent) 12px,
+    transparent 12px,
+    transparent 24px
+  );
+}
+
+/* Texto vazado (outline), típico de títulos de impacto */
+.text-outline {
+  -webkit-text-stroke: 2px var(--color-fg);
+  color: transparent;
+}
+
+/* Versão para uso sobre fundos sempre escuros */
+.text-outline-light {
+  -webkit-text-stroke: 2px #f2efe9;
+  color: transparent;
+}
+
+/*
+  Preenchido com a cor do fundo (não transparente): mantém o recorte
+  legível mesmo quando passa por cima de formas decorativas.
+*/
+.text-outline-accent {
+  -webkit-text-stroke: 3px var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* Scrollbar temática */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border: 2px solid var(--color-bg);
+}
+
+/* Respeita usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
