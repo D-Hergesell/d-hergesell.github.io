@@ -69,6 +69,14 @@ export interface FeaturedProject {
 
 export const featuredProjects: FeaturedProject[] = [
   {
+    repo: 'trabalho-interdisciplinar',
+    title: 'Central de Compras',
+    description:
+      'Plataforma web que conecta lojistas e fornecedores, com três perfis de acesso (admin, loja e fornecedor), gestão de produtos, pedidos, campanhas promocionais e regras comerciais por estado. Monorepo com API REST em Spring Boot 3.5 e frontend em Next.js/React 19.',
+    tags: ['Java', 'Spring Boot', 'Next.js', 'React', 'PostgreSQL'],
+    highlight: 'Full-stack',
+  },
+  {
     repo: 'lista-smart-api',
     title: 'Lista Smart API',
     description:
@@ -91,6 +99,14 @@ export const featuredProjects: FeaturedProject[] = [
       'Caminho mais barato entre capitais do Brasil usando Dijkstra com Min-Heap, considerando custo de combustível e pedágios, com interface pixel-art.',
     tags: ['JavaScript', 'Algoritmos', 'Grafos', 'Min-Heap'],
     highlight: 'Algoritmos',
+  },
+  {
+    repo: 'd-hergesell.github.io',
+    title: 'Portfólio Pessoal',
+    description:
+      'Este site: portfólio estático com design autoral de alto contraste, animações fluidas e integração ao vivo com a API pública do GitHub. Next.js com export estático, modo claro/escuro e deploy automático via GitHub Actions.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    highlight: 'Front-end',
   },
   {
     repo: 'studying-quantum-computing',
@@ -155,14 +171,15 @@ export const languageColors: Record<string, string> = {
 
 /** Fallback dos números exibidos quando a API do GitHub está indisponível */
 export const fallbackStats = {
-  publicRepos: 5,
+  publicRepos: 7,
   followers: 3,
   stars: 0,
   memberSince: 2024,
   languages: {
-    Java: 173699,
-    CSS: 14384,
-    JavaScript: 10540,
+    JavaScript: 416074,
+    Java: 299274,
+    CSS: 170909,
+    TypeScript: 40000,
     HTML: 3228,
   } satisfies Record<string, number>,
 };
